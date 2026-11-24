@@ -9,6 +9,55 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="mobile-topbar">
+    <button type="button" class="menu-toggle" data-drawer-toggle aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+    </button>
+    <a class="mobile-brand" href="privacy-policy.html">
+      <img src="logo.png" alt="" width="28" height="28" />
+      <strong>Ai Talk</strong>
+    </a>
+    <div class="lang-switch lang-switch-inline" id="langSwitchMain">
+      <button type="button" class="lang-switch-btn" aria-haspopup="listbox">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+        <span data-lang-current>English</span>
+        <svg class="lang-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="lang-menu" data-lang-menu role="listbox" aria-label="Languages"></div>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" data-drawer-backdrop></div>
+  <aside class="mobile-drawer" aria-label="Mobile menu">
+    <div class="drawer-head">
+      <a class="brand" href="privacy-policy.html">
+        <div class="brand-mark" aria-hidden="true">
+          <img src="logo.png" alt="" width="36" height="36" />
+        </div>
+        <div>
+          <strong>Ai Talk</strong>
+          <span data-i18n="brandSub">Help &amp; policies</span>
+        </div>
+      </a>
+      <button type="button" class="drawer-close" data-drawer-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+      </button>
+    </div>
+    <div class="nav-label" data-i18n="navPolicies">Policies</div>
+    <nav class="nav">
+      <a class="active" href="privacy-policy.html" data-i18n="navPrivacy">Privacy policy</a>
+      <a href="terms.html" data-i18n="navTerms">Terms of service</a>
+      <a href="community-guidelines.html" data-i18n="navGuidelines">Community guidelines</a>
+    </nav>
+    <div class="nav-label" data-i18n="navOnPage">On this page</div>
+    <nav class="nav">
+      <a href="#who" data-i18n="tocWho">Who we are</a>
+      <a href="#permissions" data-i18n="navPermissions">Permissions</a>
+      <a href="#third-parties" data-i18n="navThird">Third parties</a>
+      <a href="#contact" data-i18n="navContact">Contact</a>
+    </nav>
+  </aside>
+
   <div class="shell">
     <aside class="sidebar">
       <a class="brand" href="privacy-policy.html">
@@ -45,40 +94,46 @@
     </aside>
 
     <main class="main">
-      <div class="mobile-header">
-        <a class="brand" href="privacy-policy.html">
-          <div class="brand-mark" aria-hidden="true">
-            <img src="logo.png" alt="" width="36" height="36" />
-          </div>
-          <div>
-            <strong>Ai Talk</strong>
-            <span data-i18n="brandSub">Help &amp; policies</span>
-          </div>
-        </a>
-      </div>
-      <div class="mobile-nav">
-        <a class="active" href="privacy-policy.html" data-i18n="mobilePrivacy">Privacy</a>
-        <a href="terms.html" data-i18n="mobileTerms">Terms</a>
-        <a href="community-guidelines.html" data-i18n="mobileGuidelines">Guidelines</a>
+      <ul class="breadcrumbs-mobile">
+        <li>
+          <a href="privacy-policy.html" aria-label="Home">
+            <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"/></svg>
+          </a>
+        </li>
+        <li class="sep" aria-hidden="true">/</li>
+        <li data-i18n="navPolicies">Policies</li>
+        <li class="sep" aria-hidden="true">/</li>
+        <li><span class="current" data-i18n="crumbStrong">Privacy policy</span></li>
+      </ul>
+
+      <div class="toc-collapse">
+        <button type="button" class="toc-collapse-btn" data-toc-toggle aria-expanded="false">
+          <span data-i18n="tocTitle">On this page</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="toc-collapse-panel" data-toc-panel>
+          <a href="#who" data-i18n="tocWho">Who we are</a>
+          <a href="#collect" data-i18n="tocCollect">What we collect</a>
+          <a href="#permissions" data-i18n="tocPerm">Permissions</a>
+          <a href="#use" data-i18n="tocUse">How we use data</a>
+          <a href="#third-parties" data-i18n="tocShare">Sharing</a>
+          <a href="#retention" data-i18n="tocRetention">Retention</a>
+          <a href="#security" data-i18n="tocSecurity">Security</a>
+          <a href="#children" data-i18n="tocChildren">Children</a>
+          <a href="#rights" data-i18n="tocRights">Your rights</a>
+          <a href="#payments" data-i18n="tocPayments">Payments</a>
+          <a href="#contact" data-i18n="tocContact">Contact</a>
+        </div>
       </div>
 
       <div class="topbar">
         <div class="crumb"><span data-i18n="crumb">Policies /</span> <strong data-i18n="crumbStrong">Privacy policy</strong></div>
-        <div class="topbar-meta">
-          <div class="updated" data-i18n="effective">Effective 24 Nov 2026</div>
-          <div class="lang-switch lang-switch-inline" id="langSwitchMain">
-            <button type="button" class="lang-switch-btn" aria-haspopup="listbox">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
-              <span data-lang-current>English</span>
-              <svg class="lang-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
-            </button>
-            <div class="lang-menu" data-lang-menu role="listbox" aria-label="Languages"></div>
-          </div>
-        </div>
+        <div class="updated" data-i18n="effective">Effective 24 Nov 2026</div>
       </div>
 
       <section class="hero">
         <h1 data-i18n="title">Privacy policy</h1>
+        <span class="updated-line" data-i18n="effective">Effective 24 Nov 2026</span>
         <p data-i18n="lead">
           What Ai Talk collects, why we need it, who sees it, and the choices you have.
         </p>
@@ -264,6 +319,7 @@
       </div>
     </main>
   </div>
+  <script src="site.js"></script>
   <script src="privacy-i18n.js"></script>
 </body>
 </html>
