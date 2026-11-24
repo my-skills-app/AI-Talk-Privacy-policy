@@ -32,6 +32,8 @@ body {
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 a {
@@ -454,18 +456,25 @@ img, svg { max-width: 100%; height: auto; }
 
   /* Sticky top navbar — ShareChat pattern */
   .mobile-topbar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: block;
     position: sticky;
     top: 0;
     z-index: 60;
-    height: 56px;
-    padding: 0 12px;
     padding-top: env(safe-area-inset-top, 0px);
     background: #141415;
     color: #ededed;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .mobile-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
+    padding: 0 12px;
+    box-sizing: border-box;
   }
   .menu-toggle,
   .drawer-close {
@@ -474,47 +483,80 @@ img, svg { max-width: 100%; height: auto; }
     border: 0;
     background: transparent;
     color: inherit;
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     border-radius: 8px;
     flex-shrink: 0;
     padding: 0;
+    margin: 0;
+    line-height: 0;
   }
   .menu-toggle svg,
   .drawer-close svg {
     width: 22px;
     height: 22px;
     fill: currentColor;
+    display: block;
   }
   .mobile-topbar .mobile-brand {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     color: #fff;
     text-decoration: none;
     min-width: 0;
+    height: 40px;
+    line-height: 1;
   }
   .mobile-topbar .mobile-brand img {
     width: 28px;
     height: 28px;
     border-radius: 7px;
     display: block;
+    flex-shrink: 0;
   }
   .mobile-topbar .mobile-brand strong {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
   }
   .mobile-topbar .lang-switch-inline {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    flex-shrink: 0;
   }
   .mobile-topbar .lang-switch-inline .lang-switch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     color: #ededed;
+    height: 36px;
     min-height: 36px;
-    padding: 6px 8px;
+    max-height: 36px;
+    padding: 0 10px;
+    margin: 0;
+    line-height: 1;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+  .mobile-topbar .lang-switch-inline .lang-switch-btn svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+  .mobile-topbar .lang-switch-inline .lang-switch-btn .lang-caret {
+    width: 14px;
+    height: 14px;
+    margin-left: 0;
   }
   .mobile-topbar .lang-switch-inline .lang-menu {
     background: #1c1c1e;
@@ -522,6 +564,7 @@ img, svg { max-width: 100%; height: auto; }
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
     right: 0;
     left: auto;
+    top: calc(100% + 6px);
     min-width: 168px;
   }
   .mobile-topbar .lang-switch-inline .lang-menu button { color: #a1a1a6; }
@@ -700,8 +743,16 @@ img, svg { max-width: 100%; height: auto; }
     margin-bottom: 16px;
   }
   .hero h1 {
-    font-size: clamp(28px, 8vw, 36px);
+    font-size: 30px;
     margin-bottom: 10px;
+  }
+  .hero p,
+  .card p,
+  .card li,
+  .breadcrumbs-mobile,
+  .toc-collapse-btn {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   .hero h1::after { display: none; }
   .hero .updated-line {
@@ -762,7 +813,12 @@ img, svg { max-width: 100%; height: auto; }
 
 @media (max-width: 560px) {
   .main { padding: 10px 14px calc(32px + env(safe-area-inset-bottom, 0px)); }
-  .mobile-topbar .mobile-brand strong { font-size: 15px; }
+  .mobile-topbar-inner {
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
+  }
+  .mobile-topbar .mobile-brand strong { font-size: 16px; }
   .table-wrap {
     margin-left: -14px;
     margin-right: -14px;
