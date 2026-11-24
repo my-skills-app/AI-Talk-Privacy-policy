@@ -525,17 +525,23 @@ img, svg { max-width: 100%; height: auto; }
     white-space: nowrap;
   }
   .mobile-topbar .lang-switch-inline {
-    margin-left: auto;
+    position: relative;
+    margin: 0 0 0 auto !important; /* kill sidebar .lang-switch bottom margin */
     display: flex;
     align-items: center;
-    height: 40px;
+    align-self: center;
+    height: 36px;
+    min-height: 36px;
+    max-height: 36px;
     flex-shrink: 0;
   }
   .mobile-topbar .lang-switch-inline .lang-switch-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
     gap: 6px;
+    width: auto;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: #ededed;
@@ -547,6 +553,7 @@ img, svg { max-width: 100%; height: auto; }
     line-height: 1;
     font-size: 13px;
     box-sizing: border-box;
+    vertical-align: middle;
   }
   .mobile-topbar .lang-switch-inline .lang-switch-btn svg {
     width: 16px;
